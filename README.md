@@ -1,7 +1,7 @@
 suricate
 ========
 
-A curator service discovery server implementation
+A [curator](http://curator.apache.org/getting-started.html) service discovery server implementation
 
 #Requirements
 
@@ -75,4 +75,6 @@ Remove a service node with the [removeService](http://curator.apache.org/curator
 
 	$ curl -i -X DELETE http://localhost:8080/v1/service/test/ca2fff8e-d756-480c-b59e-8297ff88624b
 
-Check the [curator-x-discovery-server](http://curator.apache.org/curator-x-discovery-server/index.html) for more details about the Discovery Service and its REST interface
+Check the [curator-x-discovery-server](http://curator.apache.org/curator-x-discovery-server/index.html) for more details about the Discovery Service and its REST interface.
+
+The REST entities are described in the [curator-x-discovery-server repo](https://github.com/apache/curator/tree/master/curator-x-discovery-server)
