@@ -42,7 +42,7 @@ So, let's build it for real, deploy it to an actual server and run it. Remember,
 	# ... your deployment process here ...
 
 	# start the suricate service
-	$ java -jar suricate-0.0.1-SNAPSHOT-full.jar [-p <jetty_port>] [-b <zk_base_path>] [-c <zk_connection_string>]
+	$ java -jar suricate-0.0.1-SNAPSHOT-jar-with-dependencies.jar [-p <jetty_port>] [-b <zk_base_path>] [-c <zk_connection_string>]
 
 And you already have a suricate server running!
 
