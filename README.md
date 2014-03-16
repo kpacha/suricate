@@ -18,7 +18,7 @@ Clone the project and install it!
 	$ cd suricate
 	$ mvn install
 
-And the suricate-0.0.1-SNAPSHOT.jar should be on your local maven repo
+And the suricate-0.0.2-SNAPSHOT.jar should be on your local maven repo
 
 #Environment
 
@@ -42,7 +42,7 @@ So, let's build it for real, deploy it to an actual server and run it. Remember,
 	# ... your deployment process here ...
 
 	# start the suricate service
-	$ java -jar suricate-0.0.1-SNAPSHOT-jar-with-dependencies.jar [-p <jetty_port>] [-b <zk_base_path>] [-c <zk_connection_string>]
+	$ java -jar suricate-0.0.2-SNAPSHOT-jar-with-dependencies.jar [-p <jetty_port>] [-b <zk_base_path>] [-c <zk_connection_string>] [-t <instance_cleanup_time>]
 
 And you already have a suricate server running!
 
@@ -51,6 +51,7 @@ The options are:
 	-p <arg>   jetty port (default '8080')
 	-c <arg>   zookeeper connection string (default 'localhost:2181')
 	-b <arg>   zookeeper base path (default '/suricate/service-directory')
+	-t <arg>   instance cleanup time in millis (default '15000')
 
 #Usage
 
@@ -58,6 +59,8 @@ Register your service nodes (hosts and clusters) by sending a PUT request to the
 
 	# Register the host 'ca2fff8e-d756-480c-b59e-8297ff88624b' in the cluster 'test'
 	$ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X PUT -d '{"name": "test", "id": "ca2fff8e-d756-480c-b59e-8297ff88624b", "address": "10.20.30.40", "port": 1234, "payload": "supu", "registrationTimeUTC": 1325129459728, "serviceType": "STATIC"}' http://localhost:8080/v1/service/test/ca2fff8e-d756-480c-b59e-8297ff88624b
+
+In one or two instance cleanup cycles the garbage collector will remove this STATIC service node. Set the `serviceType` as `PERMANENT` for persistent nodes.
 
 Get a list of registered services with the [getAllNames](http://curator.apache.org/curator-x-discovery-server/index.html#getAllNames) method
 
