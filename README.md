@@ -18,7 +18,7 @@ Clone the project and install it!
 	$ cd suricate
 	$ mvn install
 
-And, after testing the code, the suricate-0.0.1-SNAPSHOT.jar should be on your local maven repo
+And the suricate-0.0.1-SNAPSHOT.jar should be on your local maven repo
 
 #Environment
 
